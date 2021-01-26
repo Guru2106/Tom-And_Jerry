@@ -1,0 +1,64 @@
+var jerry, jerryImg;
+var tom, tomImg;
+
+var garden, gardenImg;
+
+function preload(){
+  
+  jerryOne = loadImage("jerryOne.png");
+  tomOne = loadImage("tomTwo.png");
+  gardenImg = loadImage("garden.png");
+  
+}
+
+function setup(){
+  createCanvas(600,400);
+
+  
+  garden = createSprite(300, 210, 20, 20);
+  garden.addImage("gardenImg", gardenImg);
+  garden.scale = 0.62;
+
+  jerry = createSprite(100, 300);
+  jerry.addImage("jerryOne", jerryOne);
+  jerry.scale = 0.1;
+  
+  
+  tom = createSprite(450, 300);
+  tom.addImage("tomOne", tomOne);
+  tom.scale = 0.15;
+  
+}
+
+function draw(){
+  
+  background(0);
+  
+  jerry.velocityX = 2; 
+  
+  
+  if(keyDown('space')) {
+    tom.velocityX = -4;     
+  }
+    
+    
+  if(tom.isTouching(jerry)) {
+    tom.velocityX = 0;
+    jerry.velocityX = 0;
+  
+    
+    
+  }
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  drawSprites();
+  
+}
